@@ -96,6 +96,7 @@ router.post('/uploadfile',function(req,res,next){
             }
             // form.uploadDir = "C:/myapp/public" + AVATAR_UPLOAD_FILE;     //设置上传目录
             // form.uploadDir = "E:/node/myapp/public" + AVATAR_UPLOAD_FILE;     //设置上传目录
+            
             form.uploadDir = "../public" + AVATAR_UPLOAD_FILE;     //设置上传目录
             form.keepExtensions = true;     //保留后缀
             form.maxFieldsSize = 20 * 1024 * 1024;
