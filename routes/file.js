@@ -151,7 +151,8 @@ router.get('/downfile',function(req,res,next) {
 //下载自己排版的excel
 router.get('/databasedown',function(req,res,next) {
     var conf ={};
-    conf.stylesXmlFile = "styles.xml";
+    var repath = path.resolve(__dirname, '..','bin').replace(/\\/g,'/');
+    conf.stylesXmlFile = repath + "/styles.xml";
     conf.name = "mysheet";
     //列属性
     conf.cols = [{
