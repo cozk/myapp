@@ -6,6 +6,7 @@ var AVATAR_UPLOAD_FILE='/uploads/userfile/';
 var util = require('../utils/util');
 var fs = require('fs');
 var nodeExcel = require('excel-export');
+var path = require('path');
 const disableLayout ={layout: false};
 //文件列表
 router.get('/getfile', function(req, res, next) {
@@ -94,10 +95,8 @@ router.post('/uploadfile',function(req,res,next){
             if(filesize > 20 * 1024 * 1024){
                 return;
             }
-            // form.uploadDir = "C:/myapp/public" + AVATAR_UPLOAD_FILE;     //设置上传目录
-            // form.uploadDir = "E:/node/myapp/public" + AVATAR_UPLOAD_FILE;     //设置上传目录
-            
-            form.uploadDir = "../public" + AVATAR_UPLOAD_FILE;     //设置上传目录
+            var repath = path.resolve(__dirname, '..','public').replace(/\\/g,'/');
+            form.uploadDir = repath + AVATAR_UPLOAD_FILE;     //设置上传目录
             form.keepExtensions = true;     //保留后缀
             form.maxFieldsSize = 20 * 1024 * 1024;
             var avatarName = util.createUnique() + extName;   //随机生成文件名字

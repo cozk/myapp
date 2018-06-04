@@ -5,6 +5,7 @@ var formidable=require('formidable');
 var AVATAR_UPLOAD_FOLDER='/uploads/usericon/';
 var util = require('../utils/util');
 var fs = require('fs');
+var path = require('path');
 /* GET users listing. */
 
 //登录接口
@@ -160,8 +161,8 @@ router.post('/userupload', function(req, res, next) {
         }
         else {
             var filesize = files.file.size;
-            form.uploadDir = "C:/myapp/public" + AVATAR_UPLOAD_FOLDER;     //设置上传目录
-            // form.uploadDir = "E:/node/myapp/public" + AVATAR_UPLOAD_FOLDER;     //设置上传目录
+            var repath = path.resolve(__dirname, '..','public').replace(/\\/g,'/');
+            form.uploadDir = repath + AVATAR_UPLOAD_FOLDER;     //设置上传目录
             form.keepExtensions = true;     //保留后缀
             form.maxFieldsSize = 2 * 1024 * 1024;   //文件大小
             if(filesize > 20 * 1024 * 1024){
