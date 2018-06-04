@@ -12,7 +12,6 @@ var path = require('path');
 //登录接口
 router.post('/user', function(req, res, next) {
     var user = req.body;
-    console.log(user);
     if(user){
         userDao.getPass(user.name,function (result) {
             if(result == 'e004'){
