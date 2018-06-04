@@ -8,6 +8,7 @@ var path = require('path');
 router.get('/', function(req, res, next) {
 
 
+console.log(12334444
 });
 
 module.exports = router;
