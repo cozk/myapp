@@ -95,6 +95,7 @@ router.post('/uploadfile',function(req,res,next){
             if(filesize > 20 * 1024 * 1024){
                 return;
             }
+
             var repath = path.resolve(__dirname, '..','public').replace(/\\/g,'/');
             form.uploadDir = repath + AVATAR_UPLOAD_FILE;     //设置上传目录
             form.keepExtensions = true;     //保留后缀

@@ -6,6 +6,7 @@ var AVATAR_UPLOAD_FOLDER='/uploads/usericon/';
 var util = require('../utils/util');
 var fs = require('fs');
 var path = require('path');
+
 /* GET users listing. */
 
 //登录接口
